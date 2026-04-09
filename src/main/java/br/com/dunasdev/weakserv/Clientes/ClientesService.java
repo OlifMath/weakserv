@@ -24,8 +24,9 @@ public class ClientesService {
 
         novoCliente.setCodCliente(obterNovoCodCliente());
         novoCliente.setNome(nome);
+        cliRepository.save(novoCliente);
 
-        return cliRepository.save(novoCliente);
+        return novoCliente;
     }
 
     private Clientes obterClienteModelo() {
