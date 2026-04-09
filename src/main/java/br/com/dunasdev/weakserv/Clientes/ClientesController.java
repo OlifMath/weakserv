@@ -1,7 +1,5 @@
-package br.com.dunasdev.weakserv.CadastroClientes.Controller;
+package br.com.dunasdev.weakserv.Clientes;
 
-import br.com.dunasdev.weakserv.CadastroClientes.Model.Clientes;
-import br.com.dunasdev.weakserv.CadastroClientes.Service.ClientesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,0 +1,53 @@
+package br.com.dunasdev.weakserv.Shared.DadosEntidades;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Data
+public class DadosEntidades {
+
+    @Id
+    @Column(name = "CodInterno")
+    private java.math.BigDecimal codInterno;
+
+    @Column(name = "CodEntidade")
+    private java.math.BigDecimal codEntidade;
+
+    @Column(name = "Codigo")
+    private String codigo;
+
+    @Column(name = "Descreve")
+    private String descreve;
+
+    @Column(name = "Unidade")
+    private java.math.BigDecimal unidade;
+
+    @Column(name = "Empresa")
+    private java.math.BigDecimal empresa;
+
+    @Column(name = "Detalhes")
+    private String detalhes;
+
+    @Column(name = "Inativa")
+    private Boolean inativa;
+
+    @Column(name = "SSXIDMapIcon")
+    private java.math.BigDecimal sSXIDMapIcon;
+
+    @Column(name = "SSXIDMapIconColor")
+    private java.math.BigDecimal sSXIDMapIconColor;
+
+    @Column(name = "SSXIgnitionStatus")
+    private Boolean sSXIgnitionStatus;
+
+    @Column(name = "SSXOperationalStatus")
+    private Boolean sSXOperationalStatus;
+
+    @Column(name = "SSXGPSStatus")
+    private Boolean sSXGPSStatus;
+
+    @Column(name = "SSXWarningStatus")
+    private Boolean sSXWarningStatus;
+
+}
