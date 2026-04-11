@@ -1,11 +1,10 @@
-package br.com.dunasdev.weakserv.Clientes.Models;
+package br.com.dunasdev.WeakServApi.Clientes.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-import java.math.BigDecimal;
 
 @Data
 @Entity
@@ -23,13 +22,13 @@ public class Clientes {
     private String fantasia;
 
     @Column(name = "CGCCPF")
-    private String cGCCPF;
+    private String CGCCPF;
 
     @Column(name = "InscriçãoEstadual")
     private String inscricaoEstadual;
 
     @Column(name = "RG")
-    private String rG;
+    private String rg;
 
     @Column(name = "OrgãoEmissorRG")
     private String orgaoEmissorRG;
@@ -1219,6 +1218,7 @@ public class Clientes {
     @Column(name = "idEstrangeiro")
     private String idEstrangeiro;
 
-    public Clientes() {}
+    public Clientes() {
 
+    }
 }

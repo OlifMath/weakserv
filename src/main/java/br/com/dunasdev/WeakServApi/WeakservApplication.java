@@ -1,4 +1,4 @@
-package br.com.dunasdev.weakserv;
+package br.com.dunasdev.WeakServApi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

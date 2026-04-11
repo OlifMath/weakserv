@@ -1,4 +1,4 @@
-package br.com.dunasdev.weakserv;
+package br.com.dunasdev.WeakServApi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

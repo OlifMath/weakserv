@@ -1,6 +1,6 @@
-package br.com.dunasdev.weakserv.Clientes.Repository;
+package br.com.dunasdev.WeakServApi.Clientes.Repository;
 
-import br.com.dunasdev.weakserv.Clientes.Models.Clientes;
+import br.com.dunasdev.WeakServApi.Clientes.Models.Clientes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
