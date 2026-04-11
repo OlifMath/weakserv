@@ -1,4 +1,4 @@
-package br.com.dunasdev.weakserv.Clientes;
+package br.com.dunasdev.weakserv.Clientes.Records;
 
 public class ClientesRecord {
 

@@ -1,8 +1,10 @@
-package br.com.dunasdev.weakserv.Clientes;
+package br.com.dunasdev.weakserv.Clientes.Controllers;
 
+import br.com.dunasdev.weakserv.Clientes.Models.Clientes;
+import br.com.dunasdev.weakserv.Clientes.ClientesService.ClientesService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import br.com.dunasdev.weakserv.Clientes.ClientesRecord.*;
+import br.com.dunasdev.weakserv.Clientes.Records.ClientesRecord.*;
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -15,8 +17,8 @@ public class ClientesController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<Clientes> cadastrar(@RequestBody String novoCliente) {
-        Clientes clienteCadastrado = cliService.criarCadastro(novoCliente);
+    public ResponseEntity<Clientes> cadastrar(@RequestBody NovoCliente novoCliente) {
+        Clientes clienteCadastrado = cliService.criarCadastro(novoCliente.nome());
         return ResponseEntity.ok(clienteCadastrado);
     }
 }

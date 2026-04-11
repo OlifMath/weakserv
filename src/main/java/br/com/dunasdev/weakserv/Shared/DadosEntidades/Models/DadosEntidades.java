@@ -1,4 +1,4 @@
-package br.com.dunasdev.weakserv.Shared.DadosEntidades;
+package br.com.dunasdev.weakserv.Shared.DadosEntidades.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,10 +13,10 @@ public class DadosEntidades {
 
     @Id
     @Column(name = "CodInterno")
-    private java.math.BigDecimal codInterno;
+    private Integer codInterno;
 
     @Column(name = "CodEntidade")
-    private java.math.BigDecimal codEntidade;
+    private Integer codEntidade;
 
     @Column(name = "Codigo")
     private String codigo;
