@@ -5,6 +5,8 @@ import br.com.dunasdev.WeakServApi.Clientes.Records.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/clientes")
@@ -23,7 +25,7 @@ public class ClientesController {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<RecordResponse> listar() {
+    public ResponseEntity<List<RecordResponse>> listar() {
         var listaClientes = cliService.listarClientes();
         return ResponseEntity.ok(listaClientes);
     }

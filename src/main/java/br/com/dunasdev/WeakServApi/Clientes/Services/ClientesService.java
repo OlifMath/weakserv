@@ -7,6 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ClientesService {
 
@@ -31,7 +33,7 @@ public class ClientesService {
         return RecordResponse.from(novoCliente);
     }
 
-
-
-
+    public List<RecordResponse> listarClientes(){
+        return RecordResponse.from(cliRepository.findAll());
+    }
 }
