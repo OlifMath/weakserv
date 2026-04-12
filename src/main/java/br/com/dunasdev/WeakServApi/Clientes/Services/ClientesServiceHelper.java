@@ -11,6 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 class ClientesServiceHelper {
 
+    private final Integer codEntidadeModelo = 34;;
+    private final Integer codEntidadeNovoCliente = 11;
+
     private final ClientesRepository cliRepository;
     private final DadosEntidadesRepository entRepository;
     private final DadosEntidadesService entService;
@@ -23,7 +26,6 @@ class ClientesServiceHelper {
 
     @Transactional
     protected Integer obterNovoCodCliente() {
-        final int codEntidadeNovoCliente = 11;
 
         var proximoCodCliente = entService.obterValor(codEntidadeNovoCliente, entidade -> Integer.parseInt(entidade.getCodigo()));
 
@@ -31,14 +33,12 @@ class ClientesServiceHelper {
             proximoCodCliente++;
         }
 
-        codNovoCliente.setCodigo(String.valueOf(proximoCodCliente + 1));
-        entRepository.save(codNovoCliente);
+        entService.salvarValor(codEntidadeNovoCliente, DadosEntidades::setCodigo, String.valueOf(proximoCodCliente + 1));
 
         return proximoCodCliente;
     }
 
     protected Clientes obterClienteModelo() {
-        final int codEntidadeModelo = 34;
 
         var codClienteModelo = Integer.parseInt(
                 entService.obterValor(codEntidadeModelo, entidade -> entidade.getCodigo())
