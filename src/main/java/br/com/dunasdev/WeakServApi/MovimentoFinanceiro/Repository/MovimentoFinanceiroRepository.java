@@ -31,11 +31,11 @@ public interface MovimentoFinanceiroRepository extends JpaRepository<MovimentoCa
         WHERE
             mc.eliminado = false
             AND mc.empresa = 1
-            AND mc.movimento BETWEEN :inicio AND :final
+            AND mc.movimento BETWEEN :inicio AND :fim
         ORDER BY movimento DESC
     """)
     List<RecQueryResumo> listarMovimentacoes(
             @Param("inicio") LocalDateTime inicio,
-            @Param("final") LocalDateTime fim
+            @Param("fim") LocalDateTime fim
     );
 }
