@@ -1,6 +1,6 @@
 package br.com.dunasdev.WeakServApi.Clientes.Services;
 
-import br.com.dunasdev.WeakServApi.Clientes.Records.RecordResponse;
+import br.com.dunasdev.WeakServApi.Clientes.Records.RecResponse;
 import br.com.dunasdev.WeakServApi.Clientes.Models.Clientes;
 import br.com.dunasdev.WeakServApi.Clientes.Repository.ClientesRepository;
 import org.springframework.beans.BeanUtils;
@@ -21,7 +21,7 @@ public class ClientesService {
     }
 
     @Transactional
-    public RecordResponse criarCadastro(String nome) {
+    public RecResponse criarCadastro(String nome) {
         var novoCliente = new Clientes();
 
         BeanUtils.copyProperties(helper.obterClienteModelo(), novoCliente, "codCliente");
@@ -30,10 +30,10 @@ public class ClientesService {
         novoCliente.setNome(nome);
         cliRepository.save(novoCliente);
 
-        return RecordResponse.from(novoCliente);
+        return RecResponse.from(novoCliente);
     }
 
-    public List<RecordResponse> listarClientes(){
-        return RecordResponse.from(cliRepository.findAll());
+    public List<RecResponse> listarClientes(){
+        return RecResponse.from(cliRepository.findAll());
     }
 }

@@ -19,13 +19,13 @@ public class ClientesController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<RecordResponse> cadastrar(@RequestBody RecordRequest novoCliente) {
+    public ResponseEntity<RecResponse> cadastrar(@RequestBody RecRequest novoCliente) {
         var ClienteCriado = cliService.criarCadastro(novoCliente.nome());
         return ResponseEntity.ok(ClienteCriado);
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<RecordResponse>> listar() {
+    public ResponseEntity<List<RecResponse>> listar() {
         var listaClientes = cliService.listarClientes();
         return ResponseEntity.ok(listaClientes);
     }

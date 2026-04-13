@@ -1,6 +1,9 @@
-package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.ClientesService;
+package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Service;
 
+import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Models.MovimentoCaixa;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Repository.MovimentoFinanceiroRepository;
+
+import java.util.List;
 
 public class MovimentoFinanceiroService {
 
@@ -8,5 +11,9 @@ public class MovimentoFinanceiroService {
 
     public MovimentoFinanceiroService(MovimentoFinanceiroRepository movRepository) {
         this.movRepository = movRepository;
+    }
+
+    public List<MovimentoCaixa> listarTodos() {
+        return movRepository.findAll();
     }
 }

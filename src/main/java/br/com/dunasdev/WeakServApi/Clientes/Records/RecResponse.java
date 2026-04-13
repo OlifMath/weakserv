@@ -3,20 +3,20 @@ import br.com.dunasdev.WeakServApi.Clientes.Models.Clientes;
 
 import java.util.List;
 
-public record RecordResponse(
+public record RecResponse(
         Integer codCliente,
         String nome,
         String CGCCPF
 ) {
-    public static RecordResponse from(Clientes cliente) {
-        return new RecordResponse(
+    public static RecResponse from(Clientes cliente) {
+        return new RecResponse(
                 cliente.getCodCliente(),
                 cliente.getNome(),
                 cliente.getCGCCPF()
         );
     }
 
-    public static List<RecordResponse> from(List<Clientes> clientes) {
-        return clientes.stream().map(RecordResponse::from).toList();
+    public static List<RecResponse> from(List<Clientes> clientes) {
+        return clientes.stream().map(RecResponse::from).toList();
     }
 }
