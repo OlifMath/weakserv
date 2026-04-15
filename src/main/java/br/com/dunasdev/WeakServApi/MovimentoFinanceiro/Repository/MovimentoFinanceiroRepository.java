@@ -24,10 +24,10 @@ public interface MovimentoFinanceiroRepository extends JpaRepository<MovimentoCa
             sc.descricao
         )
         FROM MovimentoCaixa mc
-        LEFT JOIN HistóricosCaixa h ON mc.Histórico = h.codHistórico
-        LEFT JOIN HistóricosCaixaContrapartida hc ON hc.codContrapartida = mc.Contrapartida
-        LEFT JOIN ContasCaixa cc ON cc.codCaixa = mc.Caixa
-        LEFT JOIN SubContas sc ON sc.codInterno = mc.CentroResultados
+        LEFT JOIN HistoricosCaixa h ON mc.historico = h.codHistorico
+        LEFT JOIN HistoricosCaixaContrapartida hc ON hc.codContrapartida = mc.contrapartida
+        LEFT JOIN ContasCaixa cc ON cc.codCaixa = mc.caixa
+        LEFT JOIN SubContas sc ON sc.codInterno = mc.centroResultados
         WHERE
             mc.eliminado = false
             AND mc.empresa = 1

@@ -2,10 +2,12 @@ package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Service;
 
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecQueryResumo;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Repository.MovimentoFinanceiroRepository;
-import java.time.LocalDateTime;
+import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class MovimentoFinanceiroService {
 
     private final MovimentoFinanceiroRepository movRepository;
