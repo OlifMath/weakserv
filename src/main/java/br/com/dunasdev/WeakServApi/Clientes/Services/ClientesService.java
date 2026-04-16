@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -33,7 +34,36 @@ public class ClientesService {
         return RecResponse.from(novoCliente);
     }
 
-    public List<RecResponse> listarClientes(){
-        return RecResponse.from(cliRepository.findAll());
+    public List<RecResponse> listarClientes(String busca) {
+        Integer codCliente = null;
+        String buscaCpfCnpj = null;
+        String buscaTexto = busca != null ? busca.trim() : "";
+
+        if (!buscaTexto.isEmpty()) {
+
+            if (buscaTexto.matches("^\\d+[,.*]$")) {
+                try {
+                    codCliente = Integer.parseInt(buscaTexto.replaceAll("[,.*]", ""));
+                    buscaTexto = null;
+                    buscaCpfCnpj = null;
+                } catch (NumberFormatException e) {
+                    codCliente = null;
+                }
+            }
+            else {
+                String apenasNumeros = buscaTexto.replaceAll("\\D", "");
+                if (!apenasNumeros.isEmpty()) {
+                    buscaCpfCnpj = apenasNumeros;
+                }
+            }
+        }
+
+        List<Clientes> resultados = cliRepository.listarClientes(
+                codCliente,
+                buscaTexto,
+                buscaCpfCnpj
+        );
+
+        return RecResponse.from(resultados);
     }
 }

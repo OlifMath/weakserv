@@ -25,8 +25,8 @@ public class ClientesController {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<RecResponse>> listar() {
-        var listaClientes = cliService.listarClientes();
+    public ResponseEntity<List<RecResponse>> listar(@RequestParam(required = false) String filtro) {
+        var listaClientes = cliService.listarClientes(filtro);
         return ResponseEntity.ok(listaClientes);
     }
 }
