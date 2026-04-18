@@ -1,6 +1,6 @@
-package br.com.dunasdev.WeakServApi.Shared.DadosEntidades.Repository;
+package br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Repository;
 
-import br.com.dunasdev.WeakServApi.Shared.DadosEntidades.Models.DadosEntidades;
+import br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Models.DadosEntidades;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

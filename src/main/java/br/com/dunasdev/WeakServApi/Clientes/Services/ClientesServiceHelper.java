@@ -2,9 +2,9 @@ package br.com.dunasdev.WeakServApi.Clientes.Services;
 
 import br.com.dunasdev.WeakServApi.Clientes.Models.Clientes;
 import br.com.dunasdev.WeakServApi.Clientes.Repository.ClientesRepository;
-import br.com.dunasdev.WeakServApi.Shared.DadosEntidades.Models.DadosEntidades;
-import br.com.dunasdev.WeakServApi.Shared.DadosEntidades.Repository.DadosEntidadesRepository;
-import br.com.dunasdev.WeakServApi.Shared.DadosEntidades.Services.DadosEntidadesService;
+import br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Models.DadosEntidades;
+import br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Repository.DadosEntidadesRepository;
+import br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Services.DadosEntidadesService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,7 +1,7 @@
 package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Repository;
 
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Models.MovimentoCaixa;
-import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecQueryResumo;
+import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecTransacaoResumo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -34,7 +34,7 @@ public interface MovimentoFinanceiroRepository extends JpaRepository<MovimentoCa
             AND mc.movimento BETWEEN :inicio AND :fim
         ORDER BY movimento DESC
     """)
-    List<RecQueryResumo> listarMovimentacoes(
+    List<RecTransacaoResumo> listarTransacoes(
             @Param("inicio") LocalDateTime inicio,
             @Param("fim") LocalDateTime fim
     );

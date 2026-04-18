@@ -1,7 +1,9 @@
 package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Service;
 
-import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecQueryResumo;
+import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecRegistraTransacao;
+import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecTransacaoResumo;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Repository.MovimentoFinanceiroRepository;
+import br.com.dunasdev.WeakServApi.Shared.Core.Service.CoreService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -16,10 +18,18 @@ public class MovimentoFinanceiroService {
         this.movRepository = movRepository;
     }
 
-    public List<RecQueryResumo> listarMovimentacoes(LocalDateTime inicio, LocalDateTime fim) {
+    public List<RecTransacaoResumo> listarTransacoes(LocalDateTime inicio, LocalDateTime fim) {
         var inicioCalc = inicio.withDayOfMonth(1).toLocalDate().atStartOfDay();
         var fimCalc = fim.withDayOfMonth(fim.toLocalDate().lengthOfMonth()).toLocalDate().atTime(23, 59, 59);
 
-        return movRepository.listarMovimentacoes(inicioCalc, fimCalc);
+        return movRepository.listarTransacoes(inicioCalc, fimCalc);
+    }
+
+    public void registrarTransacao(RecRegistraTransacao novaTransacao) {
+        var planilha = CoreService.buscaPlanilha();
+
+
+
     }
 }
+

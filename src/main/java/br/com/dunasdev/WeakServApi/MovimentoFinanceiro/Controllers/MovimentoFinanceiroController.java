@@ -1,12 +1,11 @@
 package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Controllers;
 
-import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecQueryResumo;
+import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecRegistraTransacao;
+import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecTransacaoResumo;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Service.MovimentoFinanceiroService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -22,10 +21,15 @@ public class MovimentoFinanceiroController {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<List<RecQueryResumo>> listar(@RequestParam LocalDate inicio, @RequestParam LocalDate fim) {
+    public ResponseEntity<List<RecTransacaoResumo>> listarTransacoes(@RequestParam LocalDate inicio, @RequestParam LocalDate fim) {
         LocalDateTime dataHoraInicio = inicio.atStartOfDay();
         LocalDateTime dataHoraFim = fim.atTime(LocalTime.MAX);
         
-        return ResponseEntity.ok(movService.listarMovimentacoes(dataHoraInicio, dataHoraFim));
+        return ResponseEntity.ok(movService.listarTransacoes(dataHoraInicio, dataHoraFim));
+    }
+
+    @PostMapping
+    public ResponseEntity registrarTransacao(@RequestBody RecRegistraTransacao novaTransacao) {
+        return ResponseEntity.ok().build();
     }
 }

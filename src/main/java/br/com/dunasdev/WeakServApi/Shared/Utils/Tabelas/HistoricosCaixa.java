@@ -1,4 +1,4 @@
-package br.com.dunasdev.WeakServApi.Shared.Tabelas;
+package br.com.dunasdev.WeakServApi.Shared.Utils.Tabelas;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

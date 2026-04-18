@@ -1,4 +1,4 @@
-package br.com.dunasdev.WeakServApi.Shared.DadosEntidades.Models;
+package br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

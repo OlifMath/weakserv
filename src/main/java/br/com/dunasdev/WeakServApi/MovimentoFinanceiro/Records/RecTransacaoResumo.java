@@ -3,7 +3,7 @@ package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records;
 import java.math.*;
 import java.time.LocalDateTime;
 
-public record RecQueryResumo(
+public record RecTransacaoResumo(
         LocalDateTime movimento,
         BigDecimal entrada,
         BigDecimal saida,
