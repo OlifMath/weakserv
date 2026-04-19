@@ -2,6 +2,7 @@ package br.com.dunasdev.WeakServApi.Clientes.Controllers;
 
 import br.com.dunasdev.WeakServApi.Clientes.Services.ClientesService;
 import br.com.dunasdev.WeakServApi.Clientes.Records.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +22,7 @@ public class ClientesController {
     @PostMapping("/cadastrar")
     public ResponseEntity<RecResponse> cadastrar(@RequestBody RecRequest novoCliente) {
         var ClienteCriado = cliService.criarCadastro(novoCliente.nome());
-        return ResponseEntity.ok(ClienteCriado);
+        return ResponseEntity.status(HttpStatus.CREATED).body(ClienteCriado);
     }
 
     @GetMapping("/listar")

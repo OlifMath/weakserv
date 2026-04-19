@@ -5,6 +5,7 @@ import jakarta.persistence.ParameterMode;
 import jakarta.persistence.StoredProcedureQuery;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import java.math.BigDecimal;
 
 @Repository
 public class CoreRepository {
@@ -23,14 +24,14 @@ public class CoreRepository {
 
     //region Busca Planilha
     @Transactional
-    public Long addPlanilha() {
+    public BigDecimal addPlanilha() {
         StoredProcedureQuery query = entityManager.createStoredProcedureQuery("fn_AddPlanilha");
 
-        query.registerStoredProcedureParameter("pla", Long.class, ParameterMode.OUT);
+        query.registerStoredProcedureParameter("pla", BigDecimal.class, ParameterMode.OUT);
         query.execute();
-        Long resultado = (Long) query.getOutputParameterValue("pla");
+        var resultado = (BigDecimal) query.getOutputParameterValue("pla");
 
-        return resultado != null ? resultado : 0L;
+        return resultado != null ? resultado : BigDecimal.ZERO;
     }
     //endregion
 

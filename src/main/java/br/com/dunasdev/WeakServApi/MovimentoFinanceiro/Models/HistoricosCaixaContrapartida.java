@@ -1,9 +1,10 @@
-package br.com.dunasdev.WeakServApi.Shared.Utils.Tabelas;
+package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 import java.math.BigDecimal;
 
 @Data

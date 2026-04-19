@@ -3,6 +3,8 @@ package br.com.dunasdev.WeakServApi.Shared.Core.Service;
 import org.springframework.stereotype.Service;
 import br.com.dunasdev.WeakServApi.Shared.Core.Repository.CoreRepository;
 
+import java.math.BigDecimal;
+
 @Service
 public class CoreService {
 
@@ -19,7 +21,7 @@ public class CoreService {
     //region Métodos
 
     //region Busca Planilha
-    public static Long buscaPlanilha() {
+    public static BigDecimal buscaPlanilha() {
         if (coreRepository == null) {
             throw new IllegalStateException("O Spring ainda não inicializou o repositório!");
         }

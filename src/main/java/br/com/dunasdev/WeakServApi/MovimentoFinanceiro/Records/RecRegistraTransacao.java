@@ -1,14 +1,15 @@
 package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public record RecRegistraTransacao(
-    LocalDateTime dataMovimento,
+    LocalDate dataMovimento,
     BigDecimal codHistorico,
     BigDecimal contaResultado,
     String complemento,
-    Integer Empresa,
-    BigDecimal Caixa
+    BigDecimal empresa,
+    BigDecimal caixa,
+    BigDecimal valor
 )
 {}

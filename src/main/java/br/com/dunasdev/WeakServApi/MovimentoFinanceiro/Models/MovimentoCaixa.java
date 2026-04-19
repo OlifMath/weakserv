@@ -8,6 +8,8 @@ import lombok.Data;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -15,6 +17,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@DynamicInsert
 @Table(name = "MovimentoCaixa")
 public class MovimentoCaixa {
 
@@ -33,10 +36,10 @@ public class MovimentoCaixa {
     private String usuario;
 
     @Column(name = "Entrada", precision = 19, scale = 4)
-    private BigDecimal entrada;
+    private BigDecimal entrada = BigDecimal.ZERO;
 
     @Column(name = "Saída", precision = 19, scale = 4)
-    private BigDecimal saida;
+    private BigDecimal saida = BigDecimal.ZERO;
 
     @Column(name = "Histórico", precision = 18, scale = 0)
     private BigDecimal historico;
@@ -48,7 +51,7 @@ public class MovimentoCaixa {
     private String complemento;
 
     @Column(name = "Eliminado")
-    private Boolean eliminado;
+    private Boolean eliminado = false;
 
     @Column(name = "EliminadoPor", length = 100)
     private String eliminadoPor;
@@ -63,7 +66,7 @@ public class MovimentoCaixa {
     private BigDecimal caixa;
 
     @Column(name = "Compensado")
-    private Boolean compensado;
+    private Boolean compensado = true;
 
     @Column(name = "CentroResultados", precision = 18, scale = 0)
     private BigDecimal centroResultados;
@@ -72,10 +75,10 @@ public class MovimentoCaixa {
     private String origem;
 
     @Column(name = "DRE")
-    private Boolean dRE;
+    private Boolean dRE = true;
 
     @Column(name = "Competência")
-    private LocalDateTime competencia;
+    private LocalDateTime competencia = LocalDateTime.now();
 
     @Column(name = "Borderô", precision = 18, scale = 0)
     private BigDecimal bordero;
@@ -84,7 +87,7 @@ public class MovimentoCaixa {
     private LocalDateTime dataEliminacao;
 
     @Column(name = "DataApresentaçãoCheque")
-    private LocalDateTime dataApresentacaoCheque;
+    private LocalDateTime dataApresentacaoCheque = LocalDateTime.now();
 
     @Column(name = "ChequeEmitido", length = 20)
     private String chequeEmitido;
