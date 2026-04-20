@@ -1,4 +1,4 @@
-package br.com.dunasdev.WeakServApi.Shared.Core.Exceptions;
+package br.com.dunasdev.WeakServApi.Shared.Exceptions;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
@@ -21,5 +21,17 @@ public class GlobalExceptionHandler {
                 request.getRequestURI()
         );
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(ValidacaoException.class)
+    public ResponseEntity<RecErroPadrao> handleValidacao(ValidacaoException ex, HttpServletRequest request) {
+        RecErroPadrao error = new RecErroPadrao(
+                LocalDateTime.now(),
+                HttpStatus.UNPROCESSABLE_ENTITY.value(),
+                "Unprocessable Entity",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(error);
     }
 }

@@ -1,4 +1,4 @@
-package br.com.dunasdev.WeakServApi.Shared.Core.Exceptions;
+package br.com.dunasdev.WeakServApi.Shared.Exceptions;
 
 import java.time.LocalDateTime;
 

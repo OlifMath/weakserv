@@ -1,4 +1,4 @@
-package br.com.dunasdev.WeakServApi.Shared.Core.Repository;
+package br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.ParameterMode;

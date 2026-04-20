@@ -1,7 +1,7 @@
-package br.com.dunasdev.WeakServApi.Shared.Core.Service;
+package br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Service;
 
 import org.springframework.stereotype.Service;
-import br.com.dunasdev.WeakServApi.Shared.Core.Repository.CoreRepository;
+import br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Repository.CoreRepository;
 
 import java.math.BigDecimal;
 

@@ -1,7 +1,7 @@
-package br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Services;
+package br.com.dunasdev.WeakServApi.Shared.Core.DadosEntidades.Services;
 
-import br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Models.DadosEntidades;
-import br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Repository.DadosEntidadesRepository;
+import br.com.dunasdev.WeakServApi.Shared.Core.DadosEntidades.Models.DadosEntidades;
+import br.com.dunasdev.WeakServApi.Shared.Core.DadosEntidades.Repository.DadosEntidadesRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 

@@ -36,10 +36,10 @@ public class MovimentoCaixa {
     private String usuario;
 
     @Column(name = "Entrada", precision = 19, scale = 4)
-    private BigDecimal entrada = BigDecimal.ZERO;
+    private BigDecimal entrada;
 
     @Column(name = "Saída", precision = 19, scale = 4)
-    private BigDecimal saida = BigDecimal.ZERO;
+    private BigDecimal saida;
 
     @Column(name = "Histórico", precision = 18, scale = 0)
     private BigDecimal historico;
@@ -51,7 +51,7 @@ public class MovimentoCaixa {
     private String complemento;
 
     @Column(name = "Eliminado")
-    private Boolean eliminado = false;
+    private Boolean eliminado;
 
     @Column(name = "EliminadoPor", length = 100)
     private String eliminadoPor;
@@ -66,7 +66,7 @@ public class MovimentoCaixa {
     private BigDecimal caixa;
 
     @Column(name = "Compensado")
-    private Boolean compensado = true;
+    private Boolean compensado;
 
     @Column(name = "CentroResultados", precision = 18, scale = 0)
     private BigDecimal centroResultados;
@@ -75,10 +75,10 @@ public class MovimentoCaixa {
     private String origem;
 
     @Column(name = "DRE")
-    private Boolean dRE = true;
+    private Boolean dRE;
 
     @Column(name = "Competência")
-    private LocalDateTime competencia = LocalDateTime.now();
+    private LocalDateTime competencia;
 
     @Column(name = "Borderô", precision = 18, scale = 0)
     private BigDecimal bordero;
@@ -87,7 +87,7 @@ public class MovimentoCaixa {
     private LocalDateTime dataEliminacao;
 
     @Column(name = "DataApresentaçãoCheque")
-    private LocalDateTime dataApresentacaoCheque = LocalDateTime.now();
+    private LocalDateTime dataApresentacaoCheque;
 
     @Column(name = "ChequeEmitido", length = 20)
     private String chequeEmitido;

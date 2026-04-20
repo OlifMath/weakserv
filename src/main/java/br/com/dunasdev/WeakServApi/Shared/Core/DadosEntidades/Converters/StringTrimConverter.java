@@ -1,4 +1,4 @@
-package br.com.dunasdev.WeakServApi.Shared.Modules.DadosEntidades.Converters;
+package br.com.dunasdev.WeakServApi.Shared.Core.DadosEntidades.Converters;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

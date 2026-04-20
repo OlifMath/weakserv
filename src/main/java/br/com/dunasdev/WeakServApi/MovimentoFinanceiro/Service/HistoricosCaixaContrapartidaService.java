@@ -2,7 +2,7 @@ package br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Service;
 
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Models.HistoricosCaixaContrapartida;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Repository.HistoricosCaixaContrapartidaRepository;
-import br.com.dunasdev.WeakServApi.Shared.Core.Exceptions.NaoEncontradoException;
+import br.com.dunasdev.WeakServApi.Shared.Exceptions.NaoEncontradoException;
 import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
