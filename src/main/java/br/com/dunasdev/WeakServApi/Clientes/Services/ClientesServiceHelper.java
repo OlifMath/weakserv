@@ -8,6 +8,8 @@ import br.com.dunasdev.WeakServApi.Shared.Core.DadosEntidades.Services.DadosEnti
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+
 @Component
 class ClientesServiceHelper {
 
@@ -29,7 +31,7 @@ class ClientesServiceHelper {
 
         var proximoCodCliente = entService.obterValor(codEntidadeNovoCliente, entidade -> Integer.parseInt(entidade.getCodigo()));
 
-        while (cliRepository.findByCodCliente(proximoCodCliente).isPresent()) {
+        while (cliRepository.findByCodCliente(BigDecimal.valueOf(proximoCodCliente)).isPresent()) {
             proximoCodCliente++;
         }
 
@@ -44,7 +46,7 @@ class ClientesServiceHelper {
                 entService.obterValor(codEntidadeModelo, entidade -> entidade.getCodigo())
         );
 
-        return cliRepository.findByCodCliente(codClienteModelo)
+        return cliRepository.findByCodCliente(BigDecimal.valueOf(codClienteModelo))
                 .orElseThrow(() -> new RuntimeException(
                         "Cliente modelo (código: " + codClienteModelo + ") não encontrado."));
     }

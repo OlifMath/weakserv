@@ -8,14 +8,14 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 
 @Repository
-public class CoreRepository {
+public class BuscaPlanilhaRepository {
 
     //region Atributos
     private final EntityManager entityManager;
     //endregion
 
     //region Construtores
-    public CoreRepository(EntityManager entityManager) {
+    public BuscaPlanilhaRepository(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
     //endregion

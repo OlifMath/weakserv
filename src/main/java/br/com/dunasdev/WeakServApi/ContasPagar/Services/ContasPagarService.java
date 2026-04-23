@@ -8,7 +8,7 @@ import br.com.dunasdev.WeakServApi.ContasPagar.Repository.ContasPagarRepository;
 import br.com.dunasdev.WeakServApi.ContasReceber.Records.TipoIntervalo;
 import br.com.dunasdev.WeakServApi.Shared.Exceptions.NaoEncontradoException;
 import br.com.dunasdev.WeakServApi.Shared.Exceptions.ValidacaoException;
-import br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Service.CoreService;
+import br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Service.BuscaPlanilhaService;
 import br.com.dunasdev.WeakServApi.Shared.Core.EventosDuplicatas.Services.EventoDuplicataService;
 import br.com.dunasdev.WeakServApi.Shared.Utils.DataUtils;
 import br.com.dunasdev.WeakServApi.Shared.Core.Feriados.FeriadosRepository;
@@ -54,7 +54,7 @@ public class ContasPagarService {
         if (request.codFornecedor() == null) {
             throw new ValidacaoException("O código do fornecedor é obrigatório.");
         }
-        clientesRepository.findByCodCliente(request.codFornecedor().intValue())
+        clientesRepository.findByCodCliente(request.codFornecedor())
                 .orElseThrow(() -> new NaoEncontradoException(
                         "Fornecedor não encontrado com código: " + request.codFornecedor()));
 
@@ -79,7 +79,7 @@ public class ContasPagarService {
         //endregion
 
         //region Cálculos gerais
-        var planilha = CoreService.buscaPlanilha();
+        var planilha = BuscaPlanilhaService.buscaPlanilha();
         Long maxNumero = contasPagarRepository.buscarMaxNumero();
         long proximoNumero = (maxNumero != null ? maxNumero : 0L) + 1;
 
@@ -118,14 +118,14 @@ public class ContasPagarService {
             parcela.setImpresso(false);
             parcela.setAgrupada(false);
             parcela.setSelecionada(false);
-            parcela.setRemessa(false);
+            parcela.setRemessa(null);
             parcela.setCredito(BigDecimal.ZERO);
             parcela.setDebito(BigDecimal.ZERO);
             parcela.setAcrescimosFinanceiros(BigDecimal.ZERO);
             parcela.setLiberado(false);
             parcela.setLiberadoHolding(false);
             parcela.setConfirmado(false);
-            parcela.setLiberaStatus("PE");
+            parcela.setLiberaStatus(null);
             parcela.setDataLancamento(LocalDateTime.now());
             parcela.setPlanilha(planilha);
 

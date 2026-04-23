@@ -4,7 +4,7 @@ import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Models.MovimentoCaixa;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecRegistraTransacao;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Records.RecResumoTransacao;
 import br.com.dunasdev.WeakServApi.MovimentoFinanceiro.Repository.MovimentoFinanceiroRepository;
-import br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Service.CoreService;
+import br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Service.BuscaPlanilhaService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -30,7 +30,7 @@ public class MovimentoFinanceiroService {
     }
 
     public RecResumoTransacao registrarTransacao(RecRegistraTransacao novaTransacao) {
-        var planilha = CoreService.buscaPlanilha();
+        var planilha = BuscaPlanilhaService.buscaPlanilha();
         var transacao = new MovimentoCaixa();
 
         transacao.setPlanilha(planilha);

@@ -8,7 +8,7 @@ import br.com.dunasdev.WeakServApi.ContasReceber.Records.TipoIntervalo;
 import br.com.dunasdev.WeakServApi.ContasReceber.Repository.ContasReceberRepository;
 import br.com.dunasdev.WeakServApi.Shared.Exceptions.NaoEncontradoException;
 import br.com.dunasdev.WeakServApi.Shared.Exceptions.ValidacaoException;
-import br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Service.CoreService;
+import br.com.dunasdev.WeakServApi.Shared.Core.BuscaPlanilha.Service.BuscaPlanilhaService;
 import br.com.dunasdev.WeakServApi.Shared.Core.EventosDuplicatas.Services.EventoDuplicataService;
 import br.com.dunasdev.WeakServApi.Shared.Utils.DataUtils;
 import br.com.dunasdev.WeakServApi.Shared.Core.Feriados.FeriadosRepository;
@@ -53,7 +53,7 @@ public class ContasReceberService {
         if (request.codCliente() == null) {
             throw new ValidacaoException("O código do cliente é obrigatório.");
         }
-        clientesRepository.findByCodCliente(request.codCliente().intValue())
+        clientesRepository.findByCodCliente(request.codCliente())
                 .orElseThrow(() -> new NaoEncontradoException("Cliente não encontrado com código: " + request.codCliente()));
 
         if (request.numeroParcelas() == null || request.numeroParcelas() <= 0) {
@@ -74,7 +74,7 @@ public class ContasReceberService {
         //endregion
 
         //region Cálculos gerais
-        var planilha = CoreService.buscaPlanilha();
+        var planilha = BuscaPlanilhaService.buscaPlanilha();
         Long maxNumero = contasReceberRepository.buscarMaxNumero();
         long proximoNumero = (maxNumero != null ? maxNumero : 0L) + 1;
 

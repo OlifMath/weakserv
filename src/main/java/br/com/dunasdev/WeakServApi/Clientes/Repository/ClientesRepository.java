@@ -4,12 +4,13 @@ import br.com.dunasdev.WeakServApi.Clientes.Models.Clientes;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
 public interface ClientesRepository extends JpaRepository<Clientes, Integer> {
 
-    Optional<Clientes> findByCodCliente(Integer CodCliente);
+    Optional<Clientes> findByCodCliente(BigDecimal codCliente);
 
     @Query("""
     SELECT c FROM Clientes c
@@ -26,5 +27,4 @@ public interface ClientesRepository extends JpaRepository<Clientes, Integer> {
             @Param("buscaTexto") String buscaTexto,
             @Param("buscaCpfCnpj") String buscaCpfCnpj
     );
-
 }
